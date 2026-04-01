@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Space Game</title>
+    <style>
+        body {
+            background: black;
+            color: lime;
+            font-family: monospace;
+            padding: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            background: #111;
+            color: lime;
+            border: 1px solid lime;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🚀 Space Treasure Hunt</h1>
+<pre id="game"></pre>
+<div id="choices"></div>
+
+<script>
+let game = document.getElementById("game");
+let choices = document.getElementById("choices");
+
+function startGame() {
+    game.innerText = `
+🚀 Welcome to the SPACE TREASURE HUNT!
+
+       /\\
+      /  \\
+     /----\\
+    | NASA |
+    |      |
+    |______|
+
+You are in your spaceship approaching an unknown planet...
+
+Option 1. Land on the dark mysterious planet
+Option 2. Fly to a nearby space station
+`;
+
+    choices.innerHTML = `
+        <button onclick="planet()">Option 1</button>
+        <button onclick="station()">Option 2</button>
+    `;
+}
+
+function planet() {
+    game.innerText = `
+You land on the planet... it's quiet and eerie...
+You see a cave glowing with light.
+
+Option 1. Enter the glowing cave
+Option 2. Go back to your spaceship
+`;
+
+    choices.innerHTML = `
+        <button onclick="win()">Enter cave</button>
+        <button onclick="end('You return safely, but missed the treasure... THE END')">Go back</button>
+    `;
+}
+
+function station() {
+    game.innerText = `
+You arrive at the space station...
+A robot greets you.
+
+Option 1. Trust the robot
+Option 2. Ignore the robot and explore
+`;
+
+    choices.innerHTML = `
+        <button onclick="end('The robot was evil... you got captured! 💀')">Trust robot</button>
+        <button onclick="end('You find a hidden vault, but it\\'s empty... THE END')">Explore</button>
+    `;
+}
+
+function win() {
+    game.innerText = `
+Inside the cave you find alien treasure!!! 🎉
+
+        /\\
+       /  \\
+      /----\\
+     |      |
+     | GOLD |
+     |______|
+      /::::\\
+     /::::::\\
+    '--------'
+`;
+    choices.innerHTML = `<button onclick="startGame()">Restart</button>`;
+}
+
+function end(text) {
+    game.innerText = text;
+    choices.innerHTML = `<button onclick="startGame()">Restart</button>`;
+}
+
+// start game
+startGame();
+</script>
+
+</body>
+</html>
