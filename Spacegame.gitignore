@@ -1,0 +1,18 @@
+# Logs
+*.log
+
+# PHP cache / temp
+*.cache
+*.tmp
+
+# OS bestanden
+.DS_Store
+Thumbs.db
+
+# IDE bestanden
+.vscode/
+.idea/
+
+# Backup / temp bestanden
+*.bak
+*.swp
